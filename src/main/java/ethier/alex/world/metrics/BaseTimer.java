@@ -60,18 +60,18 @@ public class BaseTimer implements Timer {
     public void printTimer(String timerName) {
 
         long nanos = this.getNanos(timerName);
-        if (nanos < 1000) {
+        if (nanos < 1000L) {
             logger.info("{} is at: {} nanoseconds.", timerName, nanos);
-        } else if (nanos < 1000 * 1000) {
-            logger.info("{} is at: {} microseconds.", timerName, nanos / (1000));
-        } else if (nanos < 1000 * 1000 * 1000) {
-            logger.info("{} is at: {} milliseconds.", timerName, nanos / (1000 * 1000));
-        } else if (nanos < 60 * 1000 * 1000 * 1000) {
-            logger.info("{} is at: {} seconds.", timerName, (nanos / (1000 * 1000 * 1000)));
-        } else if (nanos < 60 * 60 * 1000 * 1000 * 1000) {
-            logger.info("{} is at: {} minutes.", timerName, (nanos / (1000 * 60 * 1000 * 1000)));
+        } else if (nanos < 1000000L) {
+            logger.info("{} is at: {} microseconds.", timerName, nanos / (1000L));
+        } else if (nanos < 1000000000L) {
+            logger.info("{} is at: {} milliseconds.", timerName, nanos / 1000000L);
+        } else if (nanos < 60000000000L) {
+            logger.info("{} is at: {} seconds.", timerName, (nanos / 1000000000L));
+        } else if (nanos < 3600000000000L) {
+            logger.info("{} is at: {} minutes.", timerName, (nanos / 60000000000L));
         } else {
-            logger.info("{} is at: {} hours.", timerName, (nanos / (1000 * 60 * 60 * 1000 * 1000)));
+            logger.info("{} is at: {} hours.", timerName, (nanos / 3600000000000L));
         }
     }
 
