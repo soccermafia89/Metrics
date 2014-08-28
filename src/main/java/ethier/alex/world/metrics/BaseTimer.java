@@ -66,9 +66,9 @@ public class BaseTimer implements Timer {
             logger.info("{} is at: {} microseconds.", timerName, nanos / (1000));
         } else if (nanos < 1000 * 1000 * 1000) {
             logger.info("{} is at: {} milliseconds.", timerName, nanos / (1000 * 1000));
-        } else if (nanos < 60 * 1000) {
+        } else if (nanos < 60 * 1000 * 1000 * 1000) {
             logger.info("{} is at: {} seconds.", timerName, (nanos / (1000 * 1000 * 1000)));
-        } else if (nanos < 60 * 60 * 1000) {
+        } else if (nanos < 60 * 60 * 1000 * 1000 * 1000) {
             logger.info("{} is at: {} minutes.", timerName, (nanos / (1000 * 60 * 1000 * 1000)));
         } else {
             logger.info("{} is at: {} hours.", timerName, (nanos / (1000 * 60 * 60 * 1000 * 1000)));
