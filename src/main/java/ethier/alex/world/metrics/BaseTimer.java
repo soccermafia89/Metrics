@@ -60,15 +60,15 @@ public class BaseTimer implements Timer {
     public void printTimer(String timerName) {
 
         long nanos = this.getNanos(timerName);
-        if (nanos < 1000L) {
+        if (nanos < 10000L) {
             logger.info("{} is at: {} nanoseconds.", timerName, nanos);
-        } else if (nanos < 1000000L) {
+        } else if (nanos < 10000000L) {
             logger.info("{} is at: {} microseconds.", timerName, nanos / (1000L));
-        } else if (nanos < 1000000000L) {
+        } else if (nanos < 10000000000L) {
             logger.info("{} is at: {} milliseconds.", timerName, nanos / 1000000L);
-        } else if (nanos < 60000000000L) {
+        } else if (nanos < 600000000000L) {
             logger.info("{} is at: {} seconds.", timerName, (nanos / 1000000000L));
-        } else if (nanos < 3600000000000L) {
+        } else if (nanos < 36000000000000L) {
             logger.info("{} is at: {} minutes.", timerName, (nanos / 60000000000L));
         } else {
             logger.info("{} is at: {} hours.", timerName, (nanos / 3600000000000L));
